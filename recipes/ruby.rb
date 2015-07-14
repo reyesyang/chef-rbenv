@@ -44,7 +44,7 @@ bash 'Install ruby' do
 
   code <<-CODE
     source ~/.bash_profile
-    rbenv install #{ruby_version}
+    CONFIGURE_OPTS="--disable-install-doc" rbenv install #{ruby_version}
   CODE
   not_if %Q(source ~/.bash_profile && (rbenv versions | grep '#{ruby_version}'))
 end
